@@ -1,0 +1,1441 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <meta
+    name="description"
+    content="Conheça a trajetória de Veigh: de Itapevi ao trap brasileiro. História, músicas, fotos e shows anunciados."
+  >
+
+  <title>VEIGH | Dos prédios para o mundo</title>
+
+  <style>
+    /* CORES INSPIRADAS EM DOS PRÉDIOS */
+    :root {
+      --bg: #141624;
+      --panel: #202238;
+      --accent: #c7a7ed;
+      --peach: #f3c39e;
+      --text: #fff5ef;
+      --muted: #b9b4c9;
+      --line: #3e3a53;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--bg);
+      color: var(--text);
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button,
+    a {
+      touch-action: manipulation;
+    }
+
+    a:focus-visible,
+    button:focus-visible,
+    summary:focus-visible {
+      outline: 3px solid var(--accent);
+      outline-offset: 5px;
+    }
+
+    /* CABEÇALHO */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      background: #141624f2;
+      border-bottom: 1px solid var(--line);
+    }
+
+    nav {
+      max-width: 1320px;
+      margin: auto;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 22px 5%;
+      gap: 20px;
+    }
+
+    .logo {
+      font-size: 25px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .logo span {
+      color: var(--peach);
+    }
+
+    .navlinks {
+      display: flex;
+      gap: 28px;
+      font-size: 13px;
+    }
+
+    .navlinks a:hover {
+      color: var(--accent);
+    }
+
+    .pill {
+      border: 1px solid var(--line);
+      border-radius: 30px;
+      padding: 11px 18px;
+      font-size: 12px;
+    }
+
+    .menu {
+      display: none;
+      background: none;
+      color: var(--text);
+      border: 1px solid var(--line);
+      padding: 10px;
+    }
+
+    main {
+      overflow: hidden;
+    }
+
+    .wrap {
+      max-width: 1320px;
+      margin: auto;
+      padding: 0 5%;
+    }
+
+    /* TELA INICIAL */
+    .hero {
+      position: relative;
+      min-height: 720px;
+      display: flex;
+      align-items: center;
+      background: var(--bg);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .hero-photo {
+      position: absolute;
+      inset: 0 0 0 30%;
+      width: 70%;
+      height: 100%;
+      object-fit: cover;
+      object-position: center 30%;
+      filter: grayscale(100%) sepia(15%) hue-rotate(205deg);
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background:
+        linear-gradient(
+          90deg,
+          #141624 3%,
+          #141624e8 27%,
+          #14162420 80%
+        ),
+        linear-gradient(
+          0deg,
+          #141624,
+          transparent 45%
+        );
+    }
+
+    .hero-content {
+      position: relative;
+      z-index: 1;
+      width: 100%;
+      padding-top: 60px;
+      padding-bottom: 80px;
+    }
+
+    .eyebrow {
+      font-size: 11px;
+      letter-spacing: 3px;
+      color: var(--accent);
+      text-transform: uppercase;
+      font-weight: bold;
+    }
+
+    .hero h1 {
+      font-size: clamp(95px, 18vw, 230px);
+      letter-spacing: -0.09em;
+      line-height: 0.9;
+      margin: 30px 0 25px;
+      font-weight: 900;
+    }
+
+    .hero h2 {
+      font-size: clamp(25px, 4vw, 49px);
+      letter-spacing: -2px;
+      max-width: 620px;
+      margin: 20px 0;
+      color: #f6d4c3;
+    }
+
+    .hero p {
+      max-width: 430px;
+      color: #cbc2d5;
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    .actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 30px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 30px;
+      padding: 16px 24px;
+      border-radius: 3px;
+      font-size: 13px;
+      border: 1px solid var(--line);
+      transition: transform 0.2s, background 0.2s;
+    }
+
+    .btn:hover {
+      transform: translateY(-3px);
+      background: var(--panel);
+    }
+
+    .btn.primary {
+      background: var(--peach);
+      color: #211b30;
+      border-color: var(--peach);
+      font-weight: bold;
+    }
+
+    .btn.primary:hover {
+      background: #ffdab7;
+    }
+
+    .hero-foot {
+      margin-top: 55px;
+      font-size: 10px;
+      letter-spacing: 3px;
+      color: #c0b7ce;
+    }
+
+    .ticker {
+      padding: 20px;
+      background: linear-gradient(
+        105deg,
+        #b7b1e7,
+        #dfa9cb 52%,
+        #f3c39e
+      );
+      color: #211b30;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 4px;
+      text-align: center;
+      line-height: 1.8;
+    }
+
+    /* SEÇÕES */
+    .section {
+      padding: 100px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: flex;
+      justify-content: space-between;
+      align-items: end;
+      gap: 25px;
+      margin-bottom: 45px;
+    }
+
+    .section h2 {
+      font-size: clamp(33px, 5vw, 62px);
+      line-height: 1.05;
+      letter-spacing: -2.7px;
+      margin: 16px 0;
+    }
+
+    .section-heading p {
+      max-width: 340px;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.7;
+    }
+
+    /* BIOGRAFIA */
+    .bio {
+      display: grid;
+      grid-template-columns: 1fr 1.1fr;
+      gap: 70px;
+      align-items: start;
+    }
+
+    .portrait {
+      width: 100%;
+      max-height: 650px;
+      object-fit: cover;
+      object-position: top;
+      filter: grayscale(100%);
+    }
+
+    figure {
+      margin: 0;
+    }
+
+    figcaption {
+      font-size: 10px;
+      line-height: 1.6;
+      color: var(--muted);
+      margin-top: 12px;
+    }
+
+    .bio p,
+    .story p {
+      color: var(--muted);
+      font-size: 15px;
+      line-height: 1.85;
+    }
+
+    .facts {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      margin: 30px 0;
+      gap: 25px;
+    }
+
+    .facts small {
+      display: block;
+      color: var(--muted);
+      font-size: 10px;
+      letter-spacing: 2px;
+      margin-bottom: 9px;
+    }
+
+    .facts strong {
+      font-size: 15px;
+    }
+
+    /* LINHA DO TEMPO */
+    .story {
+      border-left: 1px solid var(--line);
+      padding-left: 30px;
+      margin-top: 40px;
+    }
+
+    .chapter {
+      position: relative;
+      margin-bottom: 32px;
+    }
+
+    .chapter::before {
+      content: "";
+      width: 9px;
+      height: 9px;
+      border-radius: 50%;
+      background: var(--accent);
+      position: absolute;
+      left: -35px;
+      top: 4px;
+    }
+
+    .chapter time {
+      font-size: 12px;
+      color: var(--accent);
+    }
+
+    .chapter h3 {
+      font-size: 21px;
+      letter-spacing: -0.5px;
+      margin: 10px 0;
+    }
+
+    .chapter p {
+      margin-top: 0;
+    }
+
+    /* DISCOGRAFIA */
+    .albums {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+    }
+
+    .album {
+      border: 1px solid var(--line);
+      background: var(--panel);
+      padding: 30px;
+      min-height: 280px;
+      display: flex;
+      flex-direction: column;
+      align-items: start;
+    }
+
+    .album .number {
+      font-size: 55px;
+      color: var(--peach);
+      font-weight: 900;
+      letter-spacing: -5px;
+    }
+
+    .album h3 {
+      font-size: 25px;
+      letter-spacing: -1px;
+      margin: 25px 0 10px;
+    }
+
+    .album p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.7;
+      flex: 1;
+    }
+
+    .album a {
+      font-size: 12px;
+      border-bottom: 1px solid var(--accent);
+      padding-bottom: 7px;
+    }
+
+    /* SPOTIFY */
+    .listen {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      gap: 55px;
+      align-items: center;
+    }
+
+    .listen p {
+      color: var(--muted);
+      line-height: 1.8;
+      max-width: 420px;
+    }
+
+    iframe {
+      border: 0;
+      border-radius: 12px;
+      width: 100%;
+      height: 352px;
+    }
+
+    /* AGENDA */
+    .filters {
+      display: flex;
+      gap: 8px;
+      margin-bottom: 25px;
+    }
+
+    .filter {
+      cursor: pointer;
+      background: transparent;
+      color: var(--text);
+      border: 1px solid var(--line);
+      border-radius: 25px;
+      padding: 11px 22px;
+    }
+
+    .filter.active {
+      color: var(--bg);
+      background: var(--accent);
+      border-color: var(--accent);
+    }
+
+    .event {
+      display: grid;
+      grid-template-columns: 115px 1fr auto;
+      align-items: center;
+      gap: 30px;
+      padding: 32px 0;
+      border-top: 1px solid var(--line);
+    }
+
+    .date {
+      font-size: 38px;
+      font-weight: 900;
+      letter-spacing: -2px;
+    }
+
+    .date small {
+      display: block;
+      font-size: 11px;
+      color: var(--accent);
+      letter-spacing: 2px;
+      margin-top: 7px;
+    }
+
+    .event h3 {
+      font-size: 23px;
+      margin: 0 0 10px;
+    }
+
+    .event p {
+      font-size: 13px;
+      color: var(--muted);
+      line-height: 1.7;
+      margin: 0;
+    }
+
+    .event[hidden] {
+      display: none;
+    }
+
+    .note {
+      font-size: 12px;
+      color: var(--muted);
+      line-height: 1.8;
+      margin-top: 25px;
+    }
+
+    /* GALERIA */
+    .gallery {
+      display: grid;
+      grid-template-columns: 1.5fr 1fr;
+      gap: 20px;
+    }
+
+    .photo-button {
+      padding: 0;
+      border: 0;
+      background: var(--panel);
+      cursor: zoom-in;
+      overflow: hidden;
+      height: 480px;
+    }
+
+    .photo-button img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      transition: transform 0.5s;
+      filter: grayscale(100%);
+    }
+
+    .photo-button:hover img {
+      transform: scale(1.04);
+    }
+
+    .photo-button:nth-child(2) img {
+      object-position: top;
+    }
+
+    /* CRÉDITOS E RODAPÉ */
+    .credits {
+      padding: 45px 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.9;
+    }
+
+    .credits a {
+      text-decoration: underline;
+      text-underline-offset: 4px;
+    }
+
+    .credits summary {
+      cursor: pointer;
+      color: var(--text);
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      padding: 35px 0;
+    }
+
+    .footer-inner {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+
+    footer p {
+      font-size: 11px;
+      color: var(--muted);
+    }
+
+    /* FOTO AMPLIADA */
+    dialog {
+      border: 1px solid var(--line);
+      background: var(--bg);
+      padding: 15px;
+      max-width: 92vw;
+      max-height: 94vh;
+    }
+
+    dialog::backdrop {
+      background: #000d;
+    }
+
+    dialog img {
+      display: block;
+      max-width: 85vw;
+      max-height: 78vh;
+      object-fit: contain;
+    }
+
+    dialog button {
+      display: block;
+      margin: 0 0 15px auto;
+      background: var(--accent);
+      border: 0;
+      padding: 12px 20px;
+      cursor: pointer;
+    }
+
+    /* CELULAR */
+    @media (max-width: 760px) {
+      nav {
+        padding: 17px 5%;
+        flex-wrap: wrap;
+      }
+
+      .menu {
+        display: block;
+      }
+
+      .navlinks {
+        display: none;
+        width: 100%;
+        flex-direction: column;
+        gap: 20px;
+        padding: 15px 0;
+      }
+
+      .navlinks.open {
+        display: flex;
+      }
+
+      nav > .pill {
+        display: none;
+      }
+
+      .hero {
+        min-height: 660px;
+      }
+
+      .hero-photo {
+        left: 0;
+        width: 100%;
+        opacity: 0.6;
+        object-position: 65% center;
+      }
+
+      .hero::after {
+        background:
+          linear-gradient(90deg, #141624c9, #14162433),
+          linear-gradient(0deg, #141624, transparent);
+      }
+
+      .hero h1 {
+        font-size: 30vw;
+      }
+
+      .hero h2 {
+        letter-spacing: -1px;
+      }
+
+      .section {
+        padding: 65px 0;
+      }
+
+      .section-heading {
+        display: block;
+      }
+
+      .bio,
+      .listen {
+        grid-template-columns: 1fr;
+        gap: 35px;
+      }
+
+      .bio figure {
+        order: 2;
+      }
+
+      .albums {
+        grid-template-columns: 1fr;
+      }
+
+      .album {
+        min-height: 240px;
+      }
+
+      .event {
+        grid-template-columns: 75px 1fr;
+        gap: 15px;
+      }
+
+      .event .btn {
+        grid-column: 2;
+        justify-self: start;
+      }
+
+      .date {
+        font-size: 30px;
+      }
+
+      .event h3 {
+        font-size: 20px;
+      }
+
+      .gallery {
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .photo-button {
+        height: 290px;
+      }
+
+      .footer-inner {
+        align-items: start;
+      }
+
+      .ticker {
+        font-size: 10px;
+        letter-spacing: 2px;
+      }
+
+      .hero-foot {
+        letter-spacing: 2px;
+      }
+
+      .section h2 {
+        letter-spacing: -1.5px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      * {
+        transition: none !important;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <!-- MENU -->
+  <header>
+    <nav aria-label="Navegação principal">
+      <a class="logo" href="#inicio">
+        VEIGH<span>®</span>
+      </a>
+
+      <button
+        class="menu"
+        aria-expanded="false"
+        aria-controls="navlinks"
+      >
+        Menu ☰
+      </button>
+
+      <div class="navlinks" id="navlinks">
+        <a href="#historia">A história</a>
+        <a href="#discografia">Discografia</a>
+        <a href="#fotos">Fotos</a>
+        <a href="#agenda">Agenda</a>
+      </div>
+
+      <a
+        class="pill"
+        href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO2V6FOw"
+        target="_blank"
+        rel="noopener"
+      >
+        Ouvir no Spotify ↗
+      </a>
+    </nav>
+  </header>
+
+  <main id="inicio">
+    <!-- INÍCIO -->
+    <section class="hero">
+      <img
+        class="hero-photo"
+        src="https://cdn.sanity.io/images/kbyc4i2b/production/afa93f1bd8efbdd5a7757f1a07733d47c4bc8ed1-960x635.jpg"
+        alt="Veigh com óculos escuros e jaqueta, em fotografia de divulgação"
+      >
+
+      <div class="wrap hero-content">
+        <div class="eyebrow">
+          Itapevi, São Paulo · Trap brasileiro
+        </div>
+
+        <h1>VEIGH</h1>
+
+        <h2>
+          Dos prédios<br>
+          para o mundo.
+        </h2>
+
+        <p>
+          A voz, as vivências e a ambição de Thiago Veigh.
+          Conheça a caminhada que transformou histórias da
+          Cohab em música para uma geração.
+        </p>
+
+        <div class="actions">
+          <a class="btn primary" href="#historia">
+            Explore a história ↓
+          </a>
+
+          <a class="btn" href="#ouvir">
+            Dê o play ↗
+          </a>
+        </div>
+
+        <div class="hero-foot">
+          ORIGEM. IDENTIDADE. SUPERNOVA.
+        </div>
+      </div>
+    </section>
+
+    <div class="ticker">
+      DOS PRÉDIOS &nbsp; ✳ &nbsp;
+      NOVO BALANÇO &nbsp; ✳ &nbsp;
+      EU VENCI O MUNDO
+    </div>
+
+    <!-- HISTÓRIA -->
+    <section class="section" id="historia">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">01 / A trajetória</span>
+
+            <h2>
+              Antes dos palcos,<br>
+              os predinhos.
+            </h2>
+          </div>
+
+          <p>
+            Uma história de trabalho, identidade e música
+            que começa na Grande São Paulo.
+          </p>
+        </div>
+
+        <div class="bio">
+          <figure>
+            <img
+              class="portrait"
+              loading="lazy"
+              src="https://images.elle.com.br/2026/03/ELLENIKEVEIGH_JW_0771-1-copy-768x1034.jpg"
+              alt="Veigh em ensaio com camiseta azul da seleção brasileira"
+            >
+
+            <figcaption>
+              Veigh no editorial ELLE × Jordan (2026).
+              Fotografia publicada pela ELLE Brasil.
+
+              <a
+                href="https://elle.com.br/view/veigh"
+                target="_blank"
+                rel="noopener"
+              >
+                Ver publicação ↗
+              </a>
+            </figcaption>
+          </figure>
+
+          <div>
+            <p>
+              Thiago Veigh da Silva nasceu em 12 de setembro
+              de 2001, em Itapevi, São Paulo. A Cohab e os
+              prédios onde cresceu se tornaram parte da sua
+              identidade e do universo que apresenta nas músicas.
+            </p>
+
+            <div class="facts">
+              <div>
+                <small>NOME</small>
+                <strong>Thiago Veigh da Silva</strong>
+              </div>
+
+              <div>
+                <small>ORIGEM</small>
+                <strong>Itapevi · SP</strong>
+              </div>
+
+              <div>
+                <small>NASCIMENTO</small>
+                <strong>12 de setembro de 2001</strong>
+              </div>
+
+              <div>
+                <small>CENA</small>
+                <strong>Rap / Trap</strong>
+              </div>
+            </div>
+
+            <div class="story">
+              <article class="chapter">
+                <time>OS PRIMEIROS PASSOS</time>
+
+                <h3>Trabalho de dia. Música depois.</h3>
+
+                <p>
+                  Antes de viver da arte, trabalhou com
+                  telemarketing em Alphaville e gravou rap em
+                  estúdios no centro de São Paulo após o
+                  expediente. A rotina dupla deu lugar à
+                  decisão de se dedicar à música.
+                </p>
+              </article>
+
+              <article class="chapter">
+                <time>A CONSTRUÇÃO</time>
+
+                <h3>Uma nova estrela na cena</h3>
+
+                <p>
+                  A parceria com o produtor Nagalli também se
+                  transformou em empreendimento: juntos fundaram
+                  a Supernova, gravadora ligada ao desenvolvimento
+                  de novos talentos do trap.
+                </p>
+              </article>
+
+              <article class="chapter">
+                <time>2022</time>
+
+                <h3>Dos Prédios</h3>
+
+                <p>
+                  O álbum de estreia apresentou seu universo
+                  em faixas como “Vida Chique” e “Meio Pá”.
+                  O cotidiano, os desejos e as relações aparecem
+                  em uma sonoridade que mistura rap e melodia.
+                </p>
+              </article>
+
+              <article class="chapter">
+                <time>2023</time>
+
+                <h3>A expansão com o Deluxe</h3>
+
+                <p>
+                  Dos Prédios Deluxe ampliou o alcance da carreira,
+                  com “Novo Balanço” entre os destaques. O ano também
+                  marcou apresentações na Europa e no festival
+                  The Town, em São Paulo.
+                </p>
+              </article>
+
+              <article class="chapter">
+                <time>2024 → 2025</time>
+
+                <h3>Reconhecimento e um novo capítulo</h3>
+
+                <p>
+                  Integrante da lista Forbes Under 30 de 2024,
+                  Veigh lançou Eu Venci o Mundo em 2025.
+                  O projeto traz “Taylor”, “Mônaco Freestyle”
+                  e “Artista Genérico”, aprofundando temas de
+                  conquista e transformação.
+                </p>
+              </article>
+
+              <article class="chapter">
+                <time>2026</time>
+
+                <h3>Música, imagem e novos encontros</h3>
+
+                <p>
+                  A presença no editorial ELLE × Jordan destaca
+                  sua conexão com a moda. Nos palcos, o artista
+                  está entre as atrações anunciadas do Amaê
+                  Festival 2026 e do Spotify SFX 2027.
+                </p>
+              </article>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- DISCOGRAFIA -->
+    <section class="section" id="discografia">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">
+              02 / Discografia essencial
+            </span>
+
+            <h2>Cada era, uma conquista.</h2>
+          </div>
+
+          <p>
+            Três projetos para acompanhar a evolução do artista.
+            Explore o catálogo completo no Spotify.
+          </p>
+        </div>
+
+        <div class="albums">
+          <article class="album">
+            <span class="number">2022</span>
+
+            <h3>Dos Prédios</h3>
+
+            <p>
+              O ponto de partida. Vivências e ambição em um
+              primeiro álbum que apresenta a identidade do artista.
+            </p>
+
+            <a
+              href="https://open.spotify.com/search/Veigh%20Dos%20Pr%C3%A9dios"
+              target="_blank"
+              rel="noopener"
+            >
+              Encontrar no Spotify ↗
+            </a>
+          </article>
+
+          <article class="album">
+            <span class="number">2023</span>
+
+            <h3>Dos Prédios Deluxe</h3>
+
+            <p>
+              A expansão do universo dos prédios e a fase de
+              “Novo Balanço”, uma das músicas mais conhecidas
+              da carreira.
+            </p>
+
+            <a
+              href="https://open.spotify.com/search/Veigh%20Dos%20Pr%C3%A9dios%20Deluxe"
+              target="_blank"
+              rel="noopener"
+            >
+              Encontrar no Spotify ↗
+            </a>
+          </article>
+
+          <article class="album">
+            <span class="number">2025</span>
+
+            <h3>Eu Venci o Mundo</h3>
+
+            <p>
+              Um novo momento de alcance e narrativa.
+              Conquistas, pressão e crescimento atravessam
+              as músicas do projeto.
+            </p>
+
+            <a
+              href="https://open.spotify.com/search/Veigh%20Eu%20Venci%20o%20Mundo"
+              target="_blank"
+              rel="noopener"
+            >
+              Encontrar no Spotify ↗
+            </a>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PLAYLIST -->
+    <section class="section" id="ouvir">
+      <div class="wrap listen">
+        <div>
+          <span class="eyebrow">03 / No repeat</span>
+
+          <h2>
+            A história também<br>
+            se ouve.
+          </h2>
+
+          <p>
+            Comece pela seleção editorial
+            <strong>This Is Veigh</strong>, do Spotify.
+            Uma porta de entrada para os sucessos e as
+            diferentes fases do cantor.
+          </p>
+
+          <a
+            class="btn primary"
+            href="https://open.spotify.com/playlist/37i9dQZF1DZ06evO2V6FOw"
+            target="_blank"
+            rel="noopener"
+          >
+            Abrir a playlist no Spotify ↗
+          </a>
+
+          <p class="note">
+            O player depende de conexão e da disponibilidade
+            do Spotify. Se não carregar, use o botão acima.
+          </p>
+        </div>
+
+        <iframe
+          title="Playlist This Is Veigh no Spotify"
+          loading="lazy"
+          src="https://open.spotify.com/embed/playlist/37i9dQZF1DZ06evO2V6FOw?theme=0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          allowfullscreen
+        ></iframe>
+      </div>
+    </section>
+
+    <!-- FOTOS -->
+    <section class="section" id="fotos">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">04 / Em foco</span>
+            <h2>Presença além do som.</h2>
+          </div>
+
+          <p>Clique nas fotografias para ampliar.</p>
+        </div>
+
+        <div class="gallery">
+          <button
+            class="photo-button"
+            aria-label="Ampliar foto de divulgação de Veigh"
+          >
+            <img
+              loading="lazy"
+              src="https://cdn.sanity.io/images/kbyc4i2b/production/afa93f1bd8efbdd5a7757f1a07733d47c4bc8ed1-960x635.jpg"
+              alt="Retrato de Veigh com jaqueta e óculos"
+            >
+          </button>
+
+          <button
+            class="photo-button"
+            aria-label="Ampliar foto do editorial de Veigh"
+          >
+            <img
+              loading="lazy"
+              src="https://images.elle.com.br/2026/03/ELLENIKEVEIGH_JW_0771-1-copy-768x1034.jpg"
+              alt="Veigh em editorial de moda com camiseta azul"
+            >
+          </button>
+        </div>
+
+        <p class="note">
+          Fotografias: divulgação via Universal Music Publishing
+          Group e editorial ELLE Brasil × Jordan. Direitos das
+          imagens pertencem aos respectivos titulares.
+        </p>
+      </div>
+    </section>
+
+    <!-- AGENDA -->
+    <section class="section" id="agenda">
+      <div class="wrap">
+        <div class="section-heading">
+          <div>
+            <span class="eyebrow">05 / Ao vivo</span>
+            <h2>O próximo encontro.</h2>
+          </div>
+
+          <p>
+            Seleção de apresentações anunciadas.<br>
+            Última conferência: 15 de outubro de 2026.
+          </p>
+        </div>
+
+        <div
+          class="filters"
+          role="group"
+          aria-label="Filtrar agenda por ano"
+        >
+          <button
+            class="filter active"
+            data-year="all"
+            aria-pressed="true"
+          >
+            Todas
+          </button>
+
+          <button
+            class="filter"
+            data-year="2026"
+            aria-pressed="false"
+          >
+            2026
+          </button>
+
+          <button
+            class="filter"
+            data-year="2027"
+            aria-pressed="false"
+          >
+            2027
+          </button>
+        </div>
+
+        <div id="events">
+          <article class="event" data-year="2026">
+            <div class="date">
+              07
+              <small>NOV / 2026</small>
+            </div>
+
+            <div>
+              <h3>Amaê Festival</h3>
+
+              <p>
+                São José do Rio Preto · SP<br>
+                Recinto de Exposições Alberto Bertelli Lucatto<br>
+                Portões às 15h · horário do show de Veigh a confirmar
+              </p>
+            </div>
+
+            <a
+              class="btn"
+              href="https://baladapp.com.br/pt-BR/eventos/amae-festival/8921"
+              target="_blank"
+              rel="noopener"
+            >
+              Ingressos / detalhes ↗
+            </a>
+          </article>
+
+          <article class="event" data-year="2027">
+            <div class="date">
+              23–24
+              <small>JAN / 2027</small>
+            </div>
+
+            <div>
+              <h3>Spotify Superfans Experience</h3>
+
+              <p>
+                São Paulo · SP · Distrito Anhembi<br>
+                Veigh está no elenco anunciado do evento.<br>
+                Confira o dia e horário da apresentação na programação.
+              </p>
+            </div>
+
+            <a
+              class="btn"
+              href="https://newsroom.spotify.com/2026-10-06/experiencia-dos-superfas-da-sfx-no-brasil/"
+              target="_blank"
+              rel="noopener"
+            >
+              Anúncio oficial ↗
+            </a>
+          </article>
+        </div>
+
+        <p class="note">
+          Esta seleção não representa a agenda completa do artista
+          e não se atualiza automaticamente. Datas, horários,
+          atrações e disponibilidade podem mudar. Confirme os
+          detalhes com a organização antes de comprar.
+        </p>
+      </div>
+    </section>
+
+    <!-- FONTES -->
+    <div class="wrap credits">
+      <details>
+        <summary>
+          Fontes, créditos e informações sobre este site
+        </summary>
+
+        <p>
+          Site de fã, independente, sem vínculo oficial com Veigh,
+          Supernova ou Spotify. Conteúdo biográfico resumido e
+          organizado a partir das fontes abaixo; não é uma
+          biografia autorizada.
+        </p>
+
+        <p>
+          <a
+            href="https://dicionariompb.com.br/artista/veigh/"
+            target="_blank"
+            rel="noopener"
+          >
+            Dicionário Cravo Albin — dados biográficos e discografia
+          </a>
+
+          <br>
+
+          <a
+            href="https://www.umusicpub.com/tw/artists/veigh"
+            target="_blank"
+            rel="noopener"
+          >
+            Universal Music Publishing Group — perfil,
+            imagem de divulgação e playlist
+          </a>
+
+          <br>
+
+          <a
+            href="https://forbes.com.br/under-30/2024/musica-literatura-u30-2024/thiago-veigh/"
+            target="_blank"
+            rel="noopener"
+          >
+            Forbes — Under 30 de 2024
+          </a>
+
+          <br>
+
+          <a
+            href="https://elle.com.br/view/veigh"
+            target="_blank"
+            rel="noopener"
+          >
+            ELLE Brasil — editorial Veigh × Jordan
+          </a>
+
+          <br>
+
+          <a
+            href="https://baladapp.com.br/pt-BR/eventos/amae-festival/8921"
+            target="_blank"
+            rel="noopener"
+          >
+            Baladapp — Amaê Festival 2026
+          </a>
+
+          <br>
+
+          <a
+            href="https://newsroom.spotify.com/2026-10-06/experiencia-dos-superfas-da-sfx-no-brasil/"
+            target="_blank"
+            rel="noopener"
+          >
+            Spotify Newsroom — SFX 2027
+          </a>
+        </p>
+      </details>
+    </div>
+  </main>
+
+  <!-- RODAPÉ -->
+  <footer>
+    <div class="wrap footer-inner">
+      <a class="logo" href="#inicio">
+        VEIGH<span>®</span>
+      </a>
+
+      <p>
+        Dos prédios para o mundo.<br>
+        Projeto de fã · 2026
+      </p>
+
+      <a class="pill" href="#inicio">
+        Voltar ao topo ↑
+      </a>
+    </div>
+  </footer>
+
+  <!-- JANELA DA FOTO AMPLIADA -->
+  <dialog id="lightbox" aria-label="Fotografia ampliada">
+    <button type="button">Fechar ✕</button>
+    <img alt="">
+  </dialog>
+
+  <script>
+    // MENU NO CELULAR
+    const menu = document.querySelector(".menu");
+    const links = document.querySelector(".navlinks");
+
+    menu.addEventListener("click", () => {
+      const aberto = links.classList.toggle("open");
+
+      menu.setAttribute(
+        "aria-expanded",
+        String(aberto)
+      );
+    });
+
+    links.querySelectorAll("a").forEach((link) => {
+      link.addEventListener("click", () => {
+        links.classList.remove("open");
+        menu.setAttribute("aria-expanded", "false");
+      });
+    });
+
+    // FILTROS DA AGENDA
+    const filtros = document.querySelectorAll(".filter");
+    const eventos = document.querySelectorAll(".event");
+
+    filtros.forEach((botao) => {
+      botao.addEventListener("click", () => {
+        filtros.forEach((filtro) => {
+          const selecionado = filtro === botao;
+
+          filtro.classList.toggle(
+            "active",
+            selecionado
+          );
+
+          filtro.setAttribute(
+            "aria-pressed",
+            String(selecionado)
+          );
+        });
+
+        const anoSelecionado = botao.dataset.year;
+
+        eventos.forEach((evento) => {
+          const mostrar =
+            anoSelecionado === "all" ||
+            evento.dataset.year === anoSelecionado;
+
+          evento.hidden = !mostrar;
+        });
+      });
+    });
+
+    // AMPLIAR FOTOGRAFIAS
+    const lightbox = document.querySelector("#lightbox");
+    const fotoAmpliada = lightbox.querySelector("img");
+    const botaoFechar = lightbox.querySelector("button");
+
+    document
+      .querySelectorAll(".photo-button")
+      .forEach((botao) => {
+        botao.addEventListener("click", () => {
+          const fotoOriginal = botao.querySelector("img");
+
+          fotoAmpliada.src = fotoOriginal.src;
+          fotoAmpliada.alt = fotoOriginal.alt;
+
+          lightbox.showModal();
+        });
+      });
+
+    botaoFechar.addEventListener("click", () => {
+      lightbox.close();
+    });
+
+    lightbox.addEventListener("click", (evento) => {
+      if (evento.target === lightbox) {
+        lightbox.close();
+      }
+    });
+  </script>
+</body>
+</html>
